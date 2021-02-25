@@ -1,7 +1,7 @@
 import React from "react";
 import Portfolio from "../../components/Portfolio";
 import Widget from "../../components/Widget";
-import './Forecaster.css'
+import './Forecaster.scss'
 
 class ForecasterHome extends React.Component {
   constructor(props) {

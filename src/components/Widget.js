@@ -1,5 +1,5 @@
 import React from 'react';
-import './Widget.css'
+import './Widget.scss'
 
 class Widget extends React.Component {
     constructor(props) {

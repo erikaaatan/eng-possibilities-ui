@@ -1,6 +1,6 @@
 import React from 'react';
 import InvestmentCategory from './InvestmentCategory';
-import './Portfolio.css'
+import './Portfolio.scss'
 import {investments} from '../data'
 
 class Portfolio extends React.Component {
