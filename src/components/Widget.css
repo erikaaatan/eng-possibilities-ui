@@ -5,15 +5,15 @@
     margin-left: 20px;
     border-radius: 10px;
     color: #FFFFFF;
-    padding: 5px 0px 0px 7px;
+    padding: 5px 2px 0px 7px;
     float: left;
 }
 .desc {
-    font-size: 10px;
+    font-size: 11px;
 }
 .num {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 12%;
 }

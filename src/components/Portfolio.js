@@ -1,18 +1,35 @@
 import React from 'react';
 import InvestmentCategory from './InvestmentCategory';
 import './Portfolio.css'
+import {investments} from '../data'
 
 class Portfolio extends React.Component {
     constructor() {
         super();
+        this.state = {
+            used: investments.reduce(function (acc, obj) { return acc + obj.minimum; }, 0)
+        }
+        this.useMore = this.useMore.bind(this);
+        this.useLess = this.useLess.bind(this);
+    }
+
+    useMore() {
+        this.setState({
+            used: this.state.used + 1
+        })
+    }
+
+    useLess() {
+        this.setState({
+            used: this.state.used - 1
+        })
     }
 
     render() {
-        const categories = ['Energy', 'Technology', 'Financial Services', 'Real Estate', 'Pharmaceutical', 'Airline', 'Gaming', 'Retail']
-        const investments = []
-        for (const [index, value] of categories.entries()) {
-            investments.push(<InvestmentCategory category={value}/>)
-          }
+        var invs = []
+        investments.forEach((inv) => {
+            invs.push(<InvestmentCategory category={inv.category} minimum={inv.minimum} useMore={this.useMore} useLess={this.useLess}/>)
+        })
         return (
             <div className="portfolio">
                 <div class="center">
@@ -21,11 +38,11 @@ class Portfolio extends React.Component {
                     <div class="fraction-cards">
                         <div class="card">
                             <p class="descriptor">Used</p>
-                            <p class="number">82%</p>
+                            <p class="number">{this.state.used}%</p>
                         </div>
                         <div class="card">
                             <p class="descriptor">Remaining</p>
-                            <p class="number">18%</p>
+                            <p class="number">{100-this.state.used}%</p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +50,7 @@ class Portfolio extends React.Component {
                 </div>
                 <div className="test2">
                     {
-                        investments
+                        invs
                     }
                 </div>
                 
