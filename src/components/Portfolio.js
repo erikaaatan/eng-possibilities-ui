@@ -58,18 +58,17 @@ class Portfolio extends React.Component {
     }
 
     sendRequest() {
-        let url = "http://localhost:8080"
+        let url = "http://localhost:8080/api/v1/forecast"
         console.log("inside sendRequest")
-        var mapping = new Map();
+        var mapping = {}
         investments.forEach(element => {
             console.log("PERCENTAGE " + this.state.amounts[element.category])
-            mapping.set(element.category, this.state.amounts[element.category])
+            mapping[element.category] = this.state.amounts[element.category]
         });
         console.log(mapping)
-        axios.post(url, mapping, {"Origin": "http://localhost:3000"}).then((response) => {
+        axios.post(url, {"request":mapping}, {"Origin": "http://localhost:3000"}).then((response) => {
             console.log(response)
         })
-
 
     }
 
