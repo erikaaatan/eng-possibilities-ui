@@ -6,39 +6,57 @@ class InvestmentCategory extends React.Component {
         super();
         this.minimum = props.minimum
         this.state = {
-            percentage: this.minimum,
-            belowMinimum: false
+            belowMinimum: false 
         }
-        this.increasePercent = this.increasePercent.bind(this);
-        this.decreasePercent = this.decreasePercent.bind(this);
+        // this.increasePercent = this.increasePercent.bind(this);
+        // this.decreasePercent = this.decreasePercent.bind(this);
     }
 
-    increasePercent() {
-        if (this.state.percentage < 100) {
-            this.setState(state => ({
-                percentage: state.percentage + 1
-            }));
-            this.props.useMore()
-        }
-        // concurrent so check if it's just under the threshold
-        if (this.state.percentage == this.minimum - 1) {
-            this.setState({
-                belowMinimum: false
-            })
-        }
-    }
+    // increasePercent() {
+    //     if (this.state.percentage < 100) {
+    //         this.setState(state => ({
+    //             percentage: state.percentage + 1
+    //         }));
+    //         this.props.useMore()
+    //     }
+    //     // concurrent so check if it's just under the threshold
+    //     if (this.state.percentage == this.minimum - 1) {
+    //         this.setState({
+    //             belowMinimum: false
+    //         })
+    //     }
+    // }
 
-    decreasePercent() {
-        if (this.state.percentage > 0) {
-            this.setState(state => ({
-                percentage: state.percentage - 1
-            }));
-            this.props.useLess()
-        }
-        if (this.state.percentage <= this.minimum) {
-            this.setState({
-                belowMinimum: true
-            })
+    // decreasePercent() {
+    //     if (this.state.percentage > 0) {
+    //         this.setState(state => ({
+    //             percentage: state.percentage - 1
+    //         }));
+    //         this.props.useLess()
+    //     }
+    //     if (this.state.percentage <= this.minimum) {
+    //         this.setState({
+    //             belowMinimum: true
+    //         })
+    //     }
+    // }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("componentdidupdate")
+
+        if (prevProps.percentage != this.props.percentage) {
+            console.log("hI")
+            if (this.props.percentage < this.minimum) {
+                console.log("updated percentage " + this.props.percentage)
+                this.setState({
+                    belowMinimum: true
+                })
+            }
+            else {
+                this.setState({
+                    belowMinimum: false
+                })
+            }
         }
     }
 
@@ -52,11 +70,11 @@ class InvestmentCategory extends React.Component {
                     
                 </div>
                 <div className="percent" id={this.state.belowMinimum ? "red" : "black"}>
-                    {this.state.percentage}.00 %
+                    {this.props.percentage}.00 %
                 </div>
                 <div className="arrows">
-                    <div className="up" onClick={this.increasePercent}></div>
-                    <div className="down" onClick={this.decreasePercent}></div>
+                    <div className="up" onClick={() => this.props.useMore(this.props.category)}></div>
+                    <div className="down" onClick={() => this.props.useLess(this.props.category)}></div>
                 </div>
             </div>
         );
