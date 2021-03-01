@@ -20,7 +20,7 @@
 }
 .spacer {
     width: 100%;
-    margin-top: 22%;
+    margin-top: 19%;
 }
 .descriptor {
     text-align: left;
@@ -29,19 +29,21 @@
 }
 .number {
     color: #000000;
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: right;
     margin-bottom: 0;
     font-weight: bold;
 }
-
 .test2 {
     margin-bottom: 20px;
 }
-
-button {
-    margin:0 auto;
-    display:block;
-    border-radius: 8px;
-    padding: 5px;
+.enter {
+    background-color: #F0EDEA;
+    border-radius: 14px;
+    padding: 10px 40px 10px 40px;
+    bottom: 30px;
+    left: 15%;
+    position: absolute;
+    cursor: pointer;
+    font-weight: bold;
 }

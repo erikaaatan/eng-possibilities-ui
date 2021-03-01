@@ -9,30 +9,45 @@ class ForecasterHome extends React.Component {
   constructor(props) {
       super();
       this.state = {
-        crosshairValues: []
+        crosshairValues: [],
+        predictedAmount: 15128,
+        DATA: [
+          [
+            {x: 0, y:0}
+          ],
+        ]
       }
+      this.getDollarInc = this.getDollarInc.bind(this)
+      this.getPercentInc = this.getPercentInc.bind(this)
+      this.updateData = this.updateData.bind(this)
+  }
+
+  getDollarInc() {
+    return this.state.predictedAmount - 10000;
+  }
+
+  getPercentInc() {
+    return (((this.state.predictedAmount / 10000) - 1) * 100).toFixed(2);
+  }
+
+  updateData(response) {
+    var values = JSON.parse(response.request.response)['response']
+    var newData = []
+    for (var i = 0; i < values.length; i++) {
+      console.log("pushing")
+      newData.push({x: i, y: +(values[i].toFixed(2))})
+    }
+    this.setState({
+      DATA: [
+        newData
+      ]
+    })
   }
 
   render() {
-    const DATA = [
-      [
-        {x: 0, y: 10000},
-        {x: 1, y: 11000},
-        {x: 2, y: 10500},
-        {x: 3, y: 10000},
-        {x: 4, y: 12000},
-        {x: 5, y: 13000},
-        {x: 6, y: 15500},
-        {x: 7, y: 14000},
-        {x: 8, y: 16000},
-        {x: 9, y: 17000},
-        {x: 10, y: 17000},
-      ],
-    ];
-
     const FlexibleXYPlot = makeHeightFlexible(makeWidthFlexible(XYPlot))
     var titles = ['Investment Forecaster', 'Predicted Amount', 'Dollar Increase', 'Percent Increase']
-    var descriptions = ['This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years', '$15,128', '+ $5,128', '51.28%']
+    var descriptions = ['This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years', '$' + this.state.predictedAmount.toLocaleString(), '+ $' + this.getDollarInc(), ''+this.getPercentInc() + '%']
     var isnum = [false, true, true, true]
     var widgets = []
     for (var i = 0; i < titles.length; i++) {
@@ -43,7 +58,7 @@ class ForecasterHome extends React.Component {
          <div>
               <div>
                 <div class="portfolio-section">
-                  <Portfolio/>
+                  <Portfolio updateData={this.updateData}/>
                 </div>
                 <div class="not-portfolio-section">
                   <div class="widgets-section">
@@ -57,8 +72,8 @@ class ForecasterHome extends React.Component {
                       <HorizontalGridLines />
                       <LineSeries
                         onNearestX={(value, {index}) =>
-                      this.setState({crosshairValues: DATA.map(d => d[index])})}
-                        data={DATA[0]} 
+                      this.setState({crosshairValues: this.state.DATA.map(d => d[index])})}
+                        data={this.state.DATA[0]} 
                         color="#6D9A7D"/>
                         <Crosshair values={this.state.crosshairValues}/>
                       <XAxis />

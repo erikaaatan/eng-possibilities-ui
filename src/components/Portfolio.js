@@ -5,7 +5,7 @@ import {investments} from '../data'
 import axios from 'axios'
 
 class Portfolio extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             used: investments.reduce(function (acc, obj) { return acc + obj.minimum; }, 0),
@@ -68,6 +68,7 @@ class Portfolio extends React.Component {
         console.log(mapping)
         axios.post(url, {"request":mapping}, {"Origin": "http://localhost:3000"}).then((response) => {
             console.log(response)
+            this.props.updateData(response)
         })
 
     }
@@ -83,7 +84,7 @@ class Portfolio extends React.Component {
         return (
             <div className="portfolio">
                 <div class="center">
-                    <h5>My portfolio</h5>
+                    <h6>My portfolio</h6>
                     <h1>$10,000</h1>
                     <div class="fraction-cards">
                         <div class="card">
@@ -104,9 +105,9 @@ class Portfolio extends React.Component {
                         invs
                     }
                 </div>
-                <button className="enter" onClick={this.sendRequest}>
-                    Get estimate
-                </button>
+                <div style={{'textAlign': 'center'}}>
+                    <span onClick={this.sendRequest} class="enter">Update</span>
+                </div>
             </div>
         );
     }
