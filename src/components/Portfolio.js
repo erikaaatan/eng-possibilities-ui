@@ -9,14 +9,21 @@ class Portfolio extends React.Component {
         super();
         this.state = {
             used: investments.reduce(function (acc, obj) { return acc + obj.minimum; }, 0),
-            amounts: {}
+            amounts: {},
+            belowMinimumCount: 0
         }
         investments.forEach(investment => {this.state.amounts[investment.category] = investment.minimum})
         this.useMore = this.useMore.bind(this);
         this.useLess = this.useLess.bind(this);
         this.sendRequest = this.sendRequest.bind(this);
-        console.log(this.state.amounts)
+        this.setBelowMinimum = this.setBelowMinimum.bind(this);
     }
+
+    setBelowMinimum(delta) {
+        this.setState({
+            belowMinimumCount: this.state.belowMinimumCount+ delta
+        })
+      }
 
     useMore(category) {
         if (this.state.amounts[category] < 100 && this.state.used < 100) {
@@ -70,7 +77,7 @@ class Portfolio extends React.Component {
     render() {
         var invs = []
         investments.forEach((inv) => {
-            invs.push(<InvestmentCategory category={inv.category} minimum={inv.minimum} useMore={this.useMore} useLess={this.useLess} percentage={this.state.amounts[inv.category]}/>)
+            invs.push(<InvestmentCategory setBelowMinimum={this.setBelowMinimum} category={inv.category} minimum={inv.minimum} useMore={this.useMore} useLess={this.useLess} percentage={this.state.amounts[inv.category]}/>)
         })
         
         return (
@@ -98,7 +105,7 @@ class Portfolio extends React.Component {
                     }
                 </div>
                 <div style={{'textAlign': 'center'}}>
-                    <span onClick={this.sendRequest} class="enter">Update</span>
+                    <span onClick={this.state.belowMinimumCount > 0 ? null : this.sendRequest} class="enter" id={this.state.belowMinimumCount  > 0 ? "disabled" : ""}>Update</span>
                 </div>
             </div>
         );

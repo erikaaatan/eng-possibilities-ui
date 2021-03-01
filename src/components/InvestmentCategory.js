@@ -8,38 +8,7 @@ class InvestmentCategory extends React.Component {
         this.state = {
             belowMinimum: false 
         }
-        // this.increasePercent = this.increasePercent.bind(this);
-        // this.decreasePercent = this.decreasePercent.bind(this);
     }
-
-    // increasePercent() {
-    //     if (this.state.percentage < 100) {
-    //         this.setState(state => ({
-    //             percentage: state.percentage + 1
-    //         }));
-    //         this.props.useMore()
-    //     }
-    //     // concurrent so check if it's just under the threshold
-    //     if (this.state.percentage == this.minimum - 1) {
-    //         this.setState({
-    //             belowMinimum: false
-    //         })
-    //     }
-    // }
-
-    // decreasePercent() {
-    //     if (this.state.percentage > 0) {
-    //         this.setState(state => ({
-    //             percentage: state.percentage - 1
-    //         }));
-    //         this.props.useLess()
-    //     }
-    //     if (this.state.percentage <= this.minimum) {
-    //         this.setState({
-    //             belowMinimum: true
-    //         })
-    //     }
-    // }
 
     componentDidUpdate(prevProps, prevState) {
         console.log("componentdidupdate")
@@ -51,11 +20,14 @@ class InvestmentCategory extends React.Component {
                 this.setState({
                     belowMinimum: true
                 })
+                console.log('setting below')
+                this.props.setBelowMinimum(1)
             }
             else {
                 this.setState({
                     belowMinimum: false
                 })
+                this.props.setBelowMinimum(-1)
             }
         }
     }
@@ -66,7 +38,8 @@ class InvestmentCategory extends React.Component {
                 <div className="category">
                     <b>{this.props.category}</b>
                     {this.state.belowMinimum ? 
-                    <span class="warning" data-icon="❗">Minimum: {this.minimum}%</span> : <span></span>}
+                    <span className="tool" data-icon="❗"><span className="tooltiptext">Minimum: {this.minimum}%</span></span> : <span></span>
+                    }
                     
                 </div>
                 <div className="percent" id={this.state.belowMinimum ? "red" : "black"}>

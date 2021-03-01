@@ -47,3 +47,7 @@
     cursor: pointer;
     font-weight: bold;
 }
+#disabled {
+    cursor: not-allowed;
+    background-color: gray;
+}
