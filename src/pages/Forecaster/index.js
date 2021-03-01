@@ -23,11 +23,11 @@ class ForecasterHome extends React.Component {
   }
 
   getDollarInc() {
-    return (this.state.predictedAmount - 10000).toFixed(2);
+    return +((this.state.predictedAmount - 10000).toFixed(2));
   }
 
   getPercentInc() {
-    return (((this.state.predictedAmount / 10000) - 1) * 100).toFixed(2);
+    return +((((this.state.predictedAmount / 10000) - 1) * 100).toFixed(2));
   }
 
   updateData(response) {
@@ -46,9 +46,19 @@ class ForecasterHome extends React.Component {
   }
 
   render() {
+    const options = { 
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2 
+    };
+
     const FlexibleXYPlot = makeHeightFlexible(makeWidthFlexible(XYPlot))
     var titles = ['Investment Forecaster', 'Predicted Amount', 'Dollar Increase', 'Percent Increase']
-    var descriptions = ['This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years', '$' + this.state.predictedAmount.toLocaleString(), '+ $' + this.getDollarInc(), ''+this.getPercentInc() + '%']
+    var descriptions = [
+      'This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years', 
+      '$' + this.state.predictedAmount.toLocaleString("en", options), 
+      '+ $' + this.getDollarInc().toLocaleString("en", options), 
+      '' + this.getPercentInc() + '%'
+    ]
     var isnum = [false, true, true, true]
     var widgets = []
     for (var i = 0; i < titles.length; i++) {
