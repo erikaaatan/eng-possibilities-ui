@@ -20,6 +20,7 @@ class Portfolio extends React.Component {
     }
 
     setBelowMinimum(delta) {
+        console.log(delta)
         this.setState({
             belowMinimumCount: this.state.belowMinimumCount+ delta
         })
@@ -105,7 +106,7 @@ class Portfolio extends React.Component {
                     }
                 </div>
                 <div style={{'textAlign': 'center'}}>
-                    <span onClick={this.state.belowMinimumCount > 0 ? null : this.sendRequest} class="enter" id={this.state.belowMinimumCount  > 0 ? "disabled" : ""}>Update</span>
+                    <span onClick={this.state.belowMinimumCount > 0 ? null : this.sendRequest} class="enter" id={this.state.belowMinimumCount > 0 ? "disabled" : ""}>Update</span>
                 </div>
             </div>
         );

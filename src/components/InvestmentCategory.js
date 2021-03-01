@@ -16,18 +16,20 @@ class InvestmentCategory extends React.Component {
         if (prevProps.percentage != this.props.percentage) {
             console.log("hI")
             if (this.props.percentage < this.minimum) {
-                console.log("updated percentage " + this.props.percentage)
-                this.setState({
-                    belowMinimum: true
-                })
-                console.log('setting below')
-                this.props.setBelowMinimum(1)
+                if (!this.state.belowMinimum) {
+                    this.setState({
+                        belowMinimum: true
+                    })
+                    this.props.setBelowMinimum(1)
+                }
             }
             else {
-                this.setState({
-                    belowMinimum: false
-                })
-                this.props.setBelowMinimum(-1)
+                if (this.state.belowMinimum) {
+                    this.setState({
+                        belowMinimum: false
+                    })
+                    this.props.setBelowMinimum(-1)
+                }
             }
         }
     }
