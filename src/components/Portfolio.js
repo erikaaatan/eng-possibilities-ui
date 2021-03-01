@@ -36,18 +36,12 @@ class Portfolio extends React.Component {
 
     useLess(category) {
         if (this.state.amounts[category] > 0 && this.state.used > 0) {
-            console.log("inside useless")
 
             this.setState( state => {
-                console.log("USED " + state.used)
                 var updatedUsed = state.used - 1
-                console.log("UPDATED USED " + updatedUsed)
-                // var newAmounts = new Map([state.amounts])
                 var newAmounts = state.amounts
             
                 newAmounts[category] = state.amounts[category] - 1
-
-                console.log(newAmounts)
     
                 return {
                     used: updatedUsed,
@@ -67,7 +61,6 @@ class Portfolio extends React.Component {
         });
         console.log(mapping)
         axios.post(url, {"request":mapping}, {"Origin": "http://localhost:3000"}).then((response) => {
-            console.log(response)
             this.props.updateData(response)
         })
 
@@ -79,7 +72,6 @@ class Portfolio extends React.Component {
         investments.forEach((inv) => {
             invs.push(<InvestmentCategory category={inv.category} minimum={inv.minimum} useMore={this.useMore} useLess={this.useLess} percentage={this.state.amounts[inv.category]}/>)
         })
-        console.log("rendering")
         
         return (
             <div className="portfolio">

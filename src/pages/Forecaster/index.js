@@ -10,10 +10,10 @@ class ForecasterHome extends React.Component {
       super();
       this.state = {
         crosshairValues: [],
-        predictedAmount: 15128,
+        predictedAmount: 10000,
         DATA: [
           [
-            {x: 0, y:0}
+            {x: 0, y:10000}
           ],
         ]
       }
@@ -23,7 +23,7 @@ class ForecasterHome extends React.Component {
   }
 
   getDollarInc() {
-    return this.state.predictedAmount - 10000;
+    return (this.state.predictedAmount - 10000).toFixed(2);
   }
 
   getPercentInc() {
@@ -40,7 +40,8 @@ class ForecasterHome extends React.Component {
     this.setState({
       DATA: [
         newData
-      ]
+      ],
+      predictedAmount: newData[newData.length-1].y
     })
   }
 
