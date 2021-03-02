@@ -1,8 +1,13 @@
 .portfolio {
-    background-color: #143938;
-    height: 90vh;
-    width: 38vw;
-    border-radius: 10px;
+  height: 90vh;
+  background-color: #143938;
+  border-radius: 10px;
+  width: 36vw;
+
+}
+.main{
+
+
 }
 .center {
     text-align: center;
@@ -13,6 +18,7 @@
     width: 40%;
     padding: 0px 10px;
     background-color: #F0EDEA;
+    box-shadow: 3px 3px 1px 1px #d3d3d3;
 }
 .fraction-cards {
     display: flex;
@@ -26,17 +32,18 @@
 }
 .spacer hr{
   border-top: 3px dashed #F0EDEA;
-  margin: 5px;
+  margin: 10px;
 }
 
 .descriptor {
     text-align: left;
+    font-size: 1.2vw;
     color: #555464;
     margin-bottom: 0;
 }
 .number {
     color: #000000;
-    font-size: 2vw;
+    font-size: 1.3vw;
     text-align: right;
     margin-bottom: 0;
     font-weight: bold;
@@ -48,11 +55,12 @@
     padding: 5px 40px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1.3vw;
 
 }
 .button{
   text-align: center;
-  margin-top: 10px;
+  margin: 20px 20px 20px 20px;
 
 }
 .enter:hover{
@@ -65,7 +73,7 @@
 .portfolioTitle{
   font-size:1.5vw;
   text-decoration: underline;
-  width: 100%;
+
 }
 .value{
   font-size: 1.3vw;

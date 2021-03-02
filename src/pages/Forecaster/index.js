@@ -66,8 +66,8 @@ class ForecasterHome extends React.Component {
     }
     return (
       <>
-         <div>
-              <div className="body">
+         <div className="body">
+
                 <div class="portfolio-section">
                   <Portfolio updateData={this.updateData} setBelowMinimum={this.setBelowMinimum}/>
                 </div>
@@ -92,7 +92,7 @@ class ForecasterHome extends React.Component {
                     </FlexibleXYPlot>
                   </div>
                 </div>
-              </div>
+              
             </div>
       </>
     );

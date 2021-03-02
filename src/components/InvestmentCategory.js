@@ -6,7 +6,7 @@ class InvestmentCategory extends React.Component {
         super();
         this.minimum = props.minimum
         this.state = {
-            belowMinimum: false 
+            belowMinimum: false
         }
     }
 
@@ -39,17 +39,19 @@ class InvestmentCategory extends React.Component {
             <div className="investment">
                 <div className="category">
                     <b>{this.props.category}</b>
-                    {this.state.belowMinimum ? 
+                    {this.state.belowMinimum ?
                     <span className="tool" data-icon="❗"><span className="tooltiptext">Minimum: {this.minimum}%</span></span> : <span></span>
                     }
-                    
+
                 </div>
-                <div className="percent" id={this.state.belowMinimum ? "red" : "black"}>
-                    {this.props.percentage}.00 %
-                </div>
-                <div className="arrows">
-                    <div className="up" onClick={() => this.props.useMore(this.props.category)}></div>
-                    <div className="down" onClick={() => this.props.useLess(this.props.category)}></div>
+                <div className="input">
+                  <div className="percent" id={this.state.belowMinimum ? "red" : "black"}>
+                      {this.props.percentage}.00 %
+                  </div>
+                  <div className="arrows">
+                      <div className="up" onClick={() => this.props.useMore(this.props.category)}></div>
+                      <div className="down" onClick={() => this.props.useLess(this.props.category)}></div>
+                  </div>
                 </div>
             </div>
         );

@@ -82,6 +82,7 @@ class Portfolio extends React.Component {
         })
 
         return (
+
             <div className="portfolio">
                 <div className="center">
                     <div className="topText">
@@ -111,7 +112,8 @@ class Portfolio extends React.Component {
                 <div className="button">
                     <span onClick={this.state.belowMinimumCount > 0 ? null : this.sendRequest} class="enter" id={this.state.belowMinimumCount > 0 ? "disabled" : ""}>Update</span>
                 </div>
-            </div>
+          </div>
+
         );
     }
 }
