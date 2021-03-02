@@ -2,8 +2,8 @@
     border: 1px solid #DFF6E9;
     border-radius: 5px;
     color: #F4F1F1;
-    margin: 2px 2px;
-    padding: 1%;
+    margin: 3px 3px;
+    padding: 3px;
     height: auto;
     width: 90%;
     display: flex;
@@ -14,7 +14,7 @@
 
 }
 .investment:hover{
-    text-decoration: overline;
+    text-decoration: underline;
 }
 .input{
     display: flex;
