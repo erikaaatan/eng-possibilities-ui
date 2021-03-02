@@ -46,17 +46,17 @@ class ForecasterHome extends React.Component {
   }
 
   render() {
-    const options = { 
+    const options = {
       minimumFractionDigits: 2,
-      maximumFractionDigits: 2 
+      maximumFractionDigits: 2
     };
 
     const FlexibleXYPlot = makeHeightFlexible(makeWidthFlexible(XYPlot))
     var titles = ['Investment Forecaster', 'Predicted Amount', 'Dollar Increase', 'Percent Increase']
     var descriptions = [
-      'This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years', 
-      '$' + this.state.predictedAmount.toLocaleString("en", options), 
-      '+ $' + this.getDollarInc().toLocaleString("en", options), 
+      'This page allows you to customize your investments and view the potential growth of $10,000 over a period of 10 years',
+      '$' + this.state.predictedAmount.toLocaleString("en", options),
+      '+ $' + this.getDollarInc().toLocaleString("en", options),
       '' + this.getPercentInc() + '%'
     ]
     var isnum = [false, true, true, true]
@@ -67,7 +67,7 @@ class ForecasterHome extends React.Component {
     return (
       <>
          <div>
-              <div>
+              <div className="body">
                 <div class="portfolio-section">
                   <Portfolio updateData={this.updateData} setBelowMinimum={this.setBelowMinimum}/>
                 </div>
@@ -76,7 +76,7 @@ class ForecasterHome extends React.Component {
                     {widgets}
                   </div>
                   <div class="graph-section">
-                    <FlexibleXYPlot 
+                    <FlexibleXYPlot
                     margin={{left: 70, right: 50, top: 10, bottom: 50}}
                     onMouseLeave={() => this.setState({crosshairValues: []})}
                     >
@@ -84,7 +84,7 @@ class ForecasterHome extends React.Component {
                       <LineSeries
                         onNearestX={(value, {index}) =>
                       this.setState({crosshairValues: this.state.DATA.map(d => d[index])})}
-                        data={this.state.DATA[0]} 
+                        data={this.state.DATA[0]}
                         color="#6D9A7D"/>
                         <Crosshair values={this.state.crosshairValues}/>
                       <XAxis />

@@ -1,19 +1,35 @@
 .widget {
     background-color: #143938;
-    height: 85%;
+    box-shadow: 5px 5px 1px 1px #d3d3d3;
     width: 22%;
-    margin-left: 20px;
+
     border-radius: 10px;
     color: #FFFFFF;
-    padding: 5px 2px 0px 7px;
-    float: left;
+    padding: 7px 7px ;
+
+    display: flex;
+    flex-flow: row wrap;
+
+}
+.widgetHeader{
+    text-decoration: underline;
+    font-size: 1vw;
+    text-align: center;
+    width: 100%;
+
 }
 .desc {
-    font-size: 11px;
+    font-size: 0.7vw;
+
 }
 .num {
-    text-align: center;
-    font-size: 1.5em;
+    font-size: 1.5vw;
     font-weight: bold;
-    margin-top: 12%;
+    margin-top: 10%;
+    margin-left: 20%;
+    text-align: center;
+
+}
+h1{
+  font-size: 2vw;
 }

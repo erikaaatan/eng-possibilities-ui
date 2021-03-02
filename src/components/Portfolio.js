@@ -33,7 +33,7 @@ class Portfolio extends React.Component {
                 console.log(state.amounts)
                 var newAmounts = state.amounts
                 newAmounts[category] = state.amounts[category] + 1
-    
+
                 return {
                     used: updatedUsed,
                     amounts: newAmounts
@@ -48,9 +48,9 @@ class Portfolio extends React.Component {
             this.setState( state => {
                 var updatedUsed = state.used - 1
                 var newAmounts = state.amounts
-            
+
                 newAmounts[category] = state.amounts[category] - 1
-    
+
                 return {
                     used: updatedUsed,
                     amounts: newAmounts
@@ -80,12 +80,14 @@ class Portfolio extends React.Component {
         investments.forEach((inv) => {
             invs.push(<InvestmentCategory setBelowMinimum={this.setBelowMinimum} category={inv.category} minimum={inv.minimum} useMore={this.useMore} useLess={this.useLess} percentage={this.state.amounts[inv.category]}/>)
         })
-        
+
         return (
             <div className="portfolio">
-                <div class="center">
-                    <h6>My portfolio</h6>
-                    <h1>$10,000</h1>
+                <div className="center">
+                    <div className="topText">
+                      <h6 className="portfolioTitle">My portfolio</h6>
+                      <h1 className="value">$10,000</h1>
+                    </div>
                     <div class="fraction-cards">
                         <div class="card">
                             {console.log("inside rendering, " + this.state.used)}
@@ -99,13 +101,14 @@ class Portfolio extends React.Component {
                     </div>
                 </div>
                 <div className="spacer">
+                  <hr class="dotted"/>
                 </div>
-                <div>
+                <div className="investments">
                     {
                         invs
                     }
                 </div>
-                <div style={{'textAlign': 'center'}}>
+                <div className="button">
                     <span onClick={this.state.belowMinimumCount > 0 ? null : this.sendRequest} class="enter" id={this.state.belowMinimumCount > 0 ? "disabled" : ""}>Update</span>
                 </div>
             </div>

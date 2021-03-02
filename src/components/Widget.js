@@ -9,7 +9,8 @@ class Widget extends React.Component {
     render() {
         return (
             <div className="widget">
-                {this.props.title}
+                <div className="widgetHeader"> {this.props.title}</div>
+
                 <div className={this.props.isNum ? "num" : "desc"}>
                     {this.props.description}
                 </div>

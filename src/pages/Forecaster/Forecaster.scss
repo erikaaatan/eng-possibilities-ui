@@ -7,11 +7,14 @@
     float: left;
 }
 .widgets-section {
-    height: 22vh;
+
     background: #F0EDEA;
     border-radius: 10px;
     margin-left: 10px;
-    padding-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
 }
 .graph-section {
     height: 65vh;
@@ -19,4 +22,10 @@
     border-radius: 10px;
     margin: 20px 0px 0px 10px;
     padding: 20px;
+}
+.body{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }

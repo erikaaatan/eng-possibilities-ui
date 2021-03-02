@@ -1,6 +1,7 @@
 .portfolio {
     background-color: #143938;
     height: 90vh;
+    width: 38vw;
     border-radius: 10px;
 }
 .center {
@@ -10,18 +11,24 @@
 }
 .card {
     width: 40%;
-    float: left;
-    margin-left: 6%;
-    padding: 10px 10px 0px 10px;
+    padding: 0px 10px;
     background-color: #F0EDEA;
 }
 .fraction-cards {
-    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
 }
-.spacer {
-    width: 100%;
-    margin-top: 19%;
+.spacer{
+  width: 90%;
+  margin: 0px 5%;
 }
+.spacer hr{
+  border-top: 3px dashed #F0EDEA;
+  margin: 5px;
+}
+
 .descriptor {
     text-align: left;
     color: #555464;
@@ -29,25 +36,49 @@
 }
 .number {
     color: #000000;
-    font-size: 2.5em;
+    font-size: 2vw;
     text-align: right;
     margin-bottom: 0;
     font-weight: bold;
 }
-.test2 {
-    margin-bottom: 20px;
-}
+
 .enter {
     background-color: #F0EDEA;
-    border-radius: 14px;
-    padding: 10px 40px 10px 40px;
-    bottom: 30px;
-    left: 15%;
-    position: absolute;
+    border-radius: 15px;
+    padding: 5px 40px;
     cursor: pointer;
     font-weight: bold;
+
+}
+.button{
+  text-align: center;
+  margin-top: 10px;
+
+}
+.enter:hover{
+  background-color: #d8d5d2
 }
 #disabled {
     cursor: not-allowed;
     background-color: gray;
+}
+.portfolioTitle{
+  font-size:1.5vw;
+  text-decoration: underline;
+  width: 100%;
+}
+.value{
+  font-size: 1.3vw;
+}
+.topText{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.investments{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
