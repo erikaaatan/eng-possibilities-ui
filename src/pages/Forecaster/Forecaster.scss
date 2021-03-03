@@ -1,22 +1,23 @@
-.portfolio-section {
-    width: 40%;
-    float:left;
-}
-.not-portfolio-section {
-    width: 60%;
-    float: left;
-}
+
 .widgets-section {
-    height: 22vh;
     background: #F0EDEA;
     border-radius: 10px;
     margin-left: 10px;
-    padding-top: 20px;
+    display: flex;
+    justify-content:space-around;
+    padding: 10px;
+    height: 18vh;
 }
 .graph-section {
-    height: 65vh;
+    height: 71vh;
     background: #F0EDEA;
     border-radius: 10px;
-    margin: 20px 0px 0px 10px;
-    padding: 20px;
+    margin: 10px 0px 0px 10px;
+    padding: 25px;
+}
+.body{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
 }

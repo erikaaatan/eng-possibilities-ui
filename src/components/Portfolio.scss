@@ -1,7 +1,8 @@
 .portfolio {
-    background-color: #143938;
-    height: 90vh;
-    border-radius: 10px;
+  height: 90vh;
+  background-color: #143938;
+  border-radius: 10px;
+  width: 36vw;
 }
 .center {
     text-align: center;
@@ -10,44 +11,68 @@
 }
 .card {
     width: 40%;
-    float: left;
-    margin-left: 6%;
-    padding: 10px 10px 0px 10px;
+    padding: 7px 10px;
     background-color: #F0EDEA;
+    box-shadow: 3px 3px 1px 1px #d3d3d3;
 }
 .fraction-cards {
-    width: 100%;
-}
-.spacer {
-    width: 100%;
-    margin-top: 19%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
 }
 .descriptor {
     text-align: left;
+    font-size: 1.3vw;
     color: #555464;
     margin-bottom: 0;
 }
 .number {
     color: #000000;
-    font-size: 2.5em;
+    font-size: 1.9vw;
     text-align: right;
     margin-bottom: 0;
     font-weight: bold;
 }
-.test2 {
-    margin-bottom: 20px;
-}
+
 .enter {
     background-color: #F0EDEA;
-    border-radius: 14px;
-    padding: 10px 40px 10px 40px;
-    bottom: 30px;
-    left: 15%;
-    position: absolute;
+    border-radius: 15px;
+    padding: 5px 40px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1.3vw;
+
+}
+.button{
+  text-align: center;
+  margin: 10px 20px 0px 20px;
+
+}
+.enter:hover{
+  background-color: #d8d5d2
 }
 #disabled {
     cursor: not-allowed;
     background-color: gray;
+}
+// .portfolioTitle{
+//   font-size:1.5vw;
+//   text-decoration: underline;
+
+// }
+// .value{
+//   font-size: 1.3vw;
+// }
+.topText{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.investments{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
