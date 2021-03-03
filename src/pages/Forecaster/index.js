@@ -85,9 +85,9 @@ class ForecasterHome extends React.Component {
                         onNearestX={(value, {index}) =>
                       this.setState({crosshairValues: this.state.DATA.map(d => d[index])})}
                         data={this.state.DATA[0]}
-                        color="#6D9A7D"/>
+                        color="#6D9A7D" xDomain={[0, 9]} yDomain={[0, 50000]}/>
                         <Crosshair values={this.state.crosshairValues}/>
-                      <XAxis xDomain={[0, 11]}/>
+                      <XAxis xDomain={[0, 9]}/>
                       <YAxis yDomain={[0, 50000]}/>
                     </FlexibleXYPlot>
                   </div>
