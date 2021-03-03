@@ -3,11 +3,6 @@
   background-color: #143938;
   border-radius: 10px;
   width: 36vw;
-
-}
-.main{
-
-
 }
 .center {
     text-align: center;
@@ -24,27 +19,17 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    margin-bottom: 20px;
-
+    margin-bottom: 10px;
 }
-.spacer{
-  width: 90%;
-  margin: 0px 5%;
-}
-.spacer hr{
-  border-top: 3px dashed #F0EDEA;
-  margin: 10px;
-}
-
 .descriptor {
     text-align: left;
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     color: #555464;
     margin-bottom: 0;
 }
 .number {
     color: #000000;
-    font-size: 1.3vw;
+    font-size: 1.9vw;
     text-align: right;
     margin-bottom: 0;
     font-weight: bold;
@@ -61,7 +46,7 @@
 }
 .button{
   text-align: center;
-  margin: 20px 20px 20px 20px;
+  margin: 10px 20px 0px 20px;
 
 }
 .enter:hover{

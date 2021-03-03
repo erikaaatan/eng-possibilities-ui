@@ -1,10 +1,4 @@
-.portfolio-section {
 
-
-}
-.not-portfolio-section {
-
-}
 .widgets-section {
     background: #F0EDEA;
     border-radius: 10px;
@@ -12,18 +6,18 @@
     display: flex;
     justify-content:space-around;
     padding: 10px;
+    height: 18vh;
 }
 .graph-section {
-    height: 65vh;
+    height: 71vh;
     background: #F0EDEA;
     border-radius: 10px;
-    margin: 20px 0px 0px 10px;
-    padding: 20px;
+    margin: 10px 0px 0px 10px;
+    padding: 25px;
 }
 .body{
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: center;
 
 }
