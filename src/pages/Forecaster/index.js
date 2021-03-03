@@ -87,8 +87,8 @@ class ForecasterHome extends React.Component {
                         data={this.state.DATA[0]}
                         color="#6D9A7D"/>
                         <Crosshair values={this.state.crosshairValues}/>
-                      <XAxis />
-                      <YAxis />
+                      <XAxis xDomain={[0, 11]}/>
+                      <YAxis yDomain={[0, 50000]}/>
                     </FlexibleXYPlot>
                   </div>
                 </div>
