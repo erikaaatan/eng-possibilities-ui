@@ -86,7 +86,7 @@ class Portfolio extends React.Component {
             <div className="portfolio">
                 <div className="center">
                     <div className="topText">
-                      <h6 className="portfolioTitle">My portfolio</h6>
+                      <h5 className="portfolioTitle">My portfolio</h5>
                       <h1 className="value">$10,000</h1>
                     </div>
                     <div class="fraction-cards">
