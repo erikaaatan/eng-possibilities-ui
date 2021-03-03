@@ -69,7 +69,7 @@ class ForecasterHome extends React.Component {
          <div>
               <div>
                 <div class="portfolio-section">
-                  <Portfolio updateData={this.updateData} setBelowMinimum={this.setBelowMinimum}/>
+                  <Portfolio checked={this.props.checked} updateData={this.updateData} setBelowMinimum={this.setBelowMinimum}/>
                 </div>
                 <div class="not-portfolio-section">
                   <div class="widgets-section">

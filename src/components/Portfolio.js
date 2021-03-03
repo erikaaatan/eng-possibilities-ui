@@ -20,7 +20,6 @@ class Portfolio extends React.Component {
     }
 
     setBelowMinimum(delta) {
-        console.log(delta)
         this.setState({
             belowMinimumCount: this.state.belowMinimumCount+ delta
         })
@@ -39,12 +38,17 @@ class Portfolio extends React.Component {
                     amounts: newAmounts
                 }
             })
+            setTimeout(() => {
+                console.log(this.state.belowMinimumCount)
+                if (this.props.checked && this.state.belowMinimumCount == 0) {
+                    this.sendRequest()
+                }
+            }, 200)
         }
     }
 
     useLess(category) {
         if (this.state.amounts[category] > 0 && this.state.used > 0) {
-
             this.setState( state => {
                 var updatedUsed = state.used - 1
                 var newAmounts = state.amounts
@@ -57,6 +61,12 @@ class Portfolio extends React.Component {
                 }
             })
         }
+        setTimeout(() => {
+            console.log(this.state.belowMinimumCount)
+            if (this.props.checked && this.state.belowMinimumCount == 0) {
+                this.sendRequest()
+            }
+        }, 200)
     }
 
     sendRequest() {
